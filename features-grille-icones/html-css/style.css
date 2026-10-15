@@ -1,0 +1,110 @@
+:root {
+  --fg-text: #0b1b3a;
+  --fg-muted: #46577a;
+  --fg-icon-bg: #dbe6ff;
+  --fg-icon: #1d4ed8;
+  --demo-bg: #f8faff;
+  --demo-text: #0b1b3a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fg-text: #e6edff;
+    --fg-muted: #a9b9dd;
+    --fg-icon-bg: #1a2a52;
+    --fg-icon: #93b4ff;
+    --demo-bg: #070d1c;
+    --demo-text: #e6edff;
+  }
+}
+
+[data-theme="dark"] {
+  --fg-text: #e6edff;
+  --fg-muted: #a9b9dd;
+  --fg-icon-bg: #1a2a52;
+  --fg-icon: #93b4ff;
+  --demo-bg: #070d1c;
+  --demo-text: #e6edff;
+}
+
+.fgrid {
+  color: var(--fg-text);
+}
+
+.fgrid h2 {
+  max-width: 34rem;
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.fgrid__lead {
+  max-width: 40rem;
+  margin: 0 0 2.5rem;
+  color: var(--fg-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.fgrid ul {
+  display: grid;
+  gap: 2rem 2.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fgrid__icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+  background: var(--fg-icon-bg);
+  color: var(--fg-icon);
+}
+
+.fgrid h3 {
+  margin: 1rem 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.fgrid li p {
+  margin: 0;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .fgrid ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .fgrid ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.demo {
+  box-sizing: border-box;
+  width: min(100% - 2rem, var(--demo-width, 56rem));
+  padding: 2rem 0;
+}
+
+.demo {
+  --demo-width: 68rem;
+}

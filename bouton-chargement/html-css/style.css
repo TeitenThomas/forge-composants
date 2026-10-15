@@ -1,0 +1,138 @@
+:root {
+  --loading-bg: #0f6b4f;
+  --loading-bg-hover: #0b5a42;
+  --loading-text: #ffffff;
+  --loading-success: #1e8a5f;
+  --loading-ring: #f2b84b;
+  --loading-radius: 999px;
+  --demo-bg: #f4f6f3;
+  --demo-text: #33403a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --loading-bg: #5fd3a3;
+    --loading-bg-hover: #7fe0b8;
+    --loading-text: #06281c;
+    --loading-success: #8eeac2;
+    --demo-bg: #0d1713;
+    --demo-text: #c7d8cf;
+  }
+}
+
+[data-theme="dark"] {
+  --loading-bg: #5fd3a3;
+  --loading-bg-hover: #7fe0b8;
+  --loading-text: #06281c;
+  --loading-success: #8eeac2;
+  --demo-bg: #0d1713;
+  --demo-text: #c7d8cf;
+}
+
+.loading-button {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  min-height: 3rem;
+  padding: 0 1.75rem;
+  border: 0;
+  border-radius: var(--loading-radius);
+  background: var(--loading-bg);
+  color: var(--loading-text);
+  font: 650 1rem/1 system-ui, sans-serif;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.loading-button > * {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 150ms ease;
+}
+
+.loading-button:hover {
+  background: var(--loading-bg-hover);
+}
+
+.loading-button:focus-visible {
+  outline: 3px solid var(--loading-ring);
+  outline-offset: 3px;
+}
+
+.loading-button__pending,
+.loading-button__done {
+  opacity: 0;
+}
+
+.loading-button[aria-busy="true"] {
+  cursor: progress;
+}
+
+.loading-button[aria-busy="true"] .loading-button__label,
+.loading-button[data-state="done"] .loading-button__label {
+  opacity: 0;
+}
+
+.loading-button[aria-busy="true"] .loading-button__pending,
+.loading-button[data-state="done"] .loading-button__done {
+  opacity: 1;
+}
+
+.loading-button[data-state="done"] {
+  background: var(--loading-success);
+}
+
+.loading-button__spinner {
+  width: 1.1em;
+  height: 1.1em;
+  border: 2.5px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: loading-spin 700ms linear infinite;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-button__spinner {
+    animation-duration: 2s;
+  }
+
+  .loading-button,
+  .loading-button > * {
+    transition: none;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  font-family: system-ui, sans-serif;
+}
+
+.demo {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

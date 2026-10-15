@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bouton en relief</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark {
+        @media (prefers-color-scheme: dark) {
+          &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+            @slot;
+          }
+        }
+        &:where([data-theme="dark"], [data-theme="dark"] *) {
+          @slot;
+        }
+      }
+    </style>
+  </head>
+  <body class="grid grid-cols-1 min-h-screen place-items-center bg-slate-100 dark:bg-slate-950">
+    <main class="flex flex-wrap items-center justify-center gap-5 p-8">
+      <button
+        type="button"
+        class="inline-flex min-h-10 items-center justify-center rounded-xl border-2 border-indigo-900 bg-indigo-600 px-4 text-sm font-bold text-white shadow-[0_4px_0_var(--color-indigo-900)] transition-[transform,box-shadow] duration-100 hover:-translate-y-px active:translate-y-1 active:shadow-none focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-amber-400 motion-reduce:transition-none dark:border-indigo-400 dark:bg-indigo-400 dark:text-indigo-950 dark:shadow-[0_4px_0_var(--color-indigo-700)]"
+      >
+        Ajouter
+      </button>
+      <button
+        type="button"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-indigo-900 bg-indigo-600 px-6 font-bold text-white shadow-[0_5px_0_var(--color-indigo-900)] transition-[transform,box-shadow] duration-100 hover:-translate-y-px active:translate-y-[5px] active:shadow-none focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-amber-400 motion-reduce:transition-none dark:border-indigo-400 dark:bg-indigo-400 dark:text-indigo-950 dark:shadow-[0_5px_0_var(--color-indigo-700)]"
+      >
+        Réserver une table
+      </button>
+      <button
+        type="button"
+        class="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-indigo-900 bg-white px-6 font-bold text-indigo-900 shadow-[0_5px_0_var(--color-indigo-900)] transition-[transform,box-shadow] duration-100 hover:-translate-y-px active:translate-y-[5px] active:shadow-none focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-amber-400 motion-reduce:transition-none dark:border-indigo-500 dark:bg-indigo-950 dark:text-indigo-100 dark:shadow-[0_5px_0_var(--color-indigo-500)]"
+      >
+        Voir la carte
+      </button>
+      <button
+        type="button"
+        class="inline-flex min-h-15 items-center justify-center rounded-xl border-2 border-indigo-900 bg-indigo-600 px-8 text-lg font-bold text-white shadow-[0_6px_0_var(--color-indigo-900)] transition-[transform,box-shadow] duration-100 hover:-translate-y-px active:translate-y-1.5 active:shadow-none focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-amber-400 motion-reduce:transition-none dark:border-indigo-400 dark:bg-indigo-400 dark:text-indigo-950 dark:shadow-[0_6px_0_var(--color-indigo-700)]"
+      >
+        Demander un devis
+      </button>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bouton avec état de chargement</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark {
+        @media (prefers-color-scheme: dark) {
+          &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+            @slot;
+          }
+        }
+        &:where([data-theme="dark"], [data-theme="dark"] *) {
+          @slot;
+        }
+      }
+    </style>
+  </head>
+  <body class="grid grid-cols-1 min-h-screen place-items-center bg-emerald-50 font-sans text-emerald-950 dark:bg-emerald-950 dark:text-emerald-100">
+    <main class="grid justify-items-center gap-4 p-8 text-center">
+      <button
+        type="button"
+        data-loading-button
+        class="group inline-grid min-h-12 cursor-pointer place-items-center rounded-full bg-emerald-700 px-7 font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-amber-400 aria-busy:cursor-progress data-[state=done]:bg-emerald-600 dark:bg-emerald-300 dark:text-emerald-950 dark:hover:bg-emerald-200"
+      >
+        <span class="col-start-1 row-start-1 transition-opacity group-aria-busy:opacity-0 group-data-[state=done]:opacity-0">Envoyer ma demande</span>
+        <span aria-hidden="true" class="col-start-1 row-start-1 inline-flex items-center gap-2 opacity-0 transition-opacity group-aria-busy:opacity-100">
+          <span class="size-4 animate-spin rounded-full border-[2.5px] border-current border-r-transparent motion-reduce:[animation-duration:2s]"></span>Envoi…
+        </span>
+        <span aria-hidden="true" class="col-start-1 row-start-1 opacity-0 transition-opacity group-data-[state=done]:opacity-100">Demande envoyée</span>
+      </button>
+      <p>Cliquez pour simuler un envoi de deux secondes.</p>
+      <p class="sr-only" role="status" aria-live="polite" data-loading-status></p>
+    </main>
+    <script>
+      function send() {
+        return new Promise((resolve) => setTimeout(resolve, 2000));
+      }
+      document.querySelectorAll("[data-loading-button]").forEach((button) => {
+        const status = document.querySelector("[data-loading-status]");
+        button.addEventListener("click", async () => {
+          if (button.getAttribute("aria-busy") === "true") return;
+          button.style.minWidth = `${button.offsetWidth}px`;
+          button.setAttribute("aria-busy", "true");
+          button.removeAttribute("data-state");
+          status.textContent = "Envoi en cours";
+          try {
+            await send();
+            button.setAttribute("data-state", "done");
+            status.textContent = "Demande envoyée";
+          } finally {
+            button.removeAttribute("aria-busy");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

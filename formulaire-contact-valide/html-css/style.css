@@ -1,0 +1,136 @@
+:root {
+  --form-bg: #ffffff;
+  --form-line: #94a3b8;
+  --form-text: #0f172a;
+  --form-muted: #475569;
+  --form-focus: #1d4ed8;
+  --form-error: #b91c1c;
+  --form-button: #1d4ed8;
+  --form-button-text: #ffffff;
+  --demo-bg: #f1f5f9;
+  --demo-text: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --form-bg: #0f172a;
+    --form-line: #64748b;
+    --form-text: #f1f5f9;
+    --form-muted: #cbd5e1;
+    --form-focus: #93c5fd;
+    --form-error: #fca5a5;
+    --form-button: #93c5fd;
+    --form-button-text: #0b1530;
+    --demo-bg: #020617;
+    --demo-text: #f1f5f9;
+  }
+}
+
+[data-theme="dark"] {
+  --form-bg: #0f172a;
+  --form-line: #64748b;
+  --form-text: #f1f5f9;
+  --form-muted: #cbd5e1;
+  --form-focus: #93c5fd;
+  --form-error: #fca5a5;
+  --form-button: #93c5fd;
+  --form-button-text: #0b1530;
+  --demo-bg: #020617;
+  --demo-text: #f1f5f9;
+}
+
+.vform {
+  display: grid;
+  gap: 1.1rem;
+  color: var(--form-text);
+}
+
+.vform__field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.vform label {
+  font-weight: 650;
+}
+
+.vform input,
+.vform textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--form-line);
+  border-radius: 10px;
+  background: var(--form-bg);
+  color: var(--form-text);
+  font: 1rem system-ui, sans-serif;
+}
+
+.vform input:focus,
+.vform textarea:focus {
+  border-color: var(--form-focus);
+  outline: 3px solid color-mix(in srgb, var(--form-focus) 30%, transparent);
+}
+
+.vform [aria-invalid="true"] {
+  border-color: var(--form-error);
+}
+
+.vform__hint {
+  margin: 0;
+  color: var(--form-muted);
+  font-size: 0.875rem;
+}
+
+.vform__error {
+  margin: 0;
+  color: var(--form-error);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.vform__error:empty,
+.vform__status:empty {
+  display: none;
+}
+
+.vform button {
+  min-height: 3.1rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--form-button);
+  color: var(--form-button-text);
+  font: 700 1rem/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.vform button:focus-visible {
+  outline: 3px solid var(--form-focus);
+  outline-offset: 3px;
+}
+
+.vform__status {
+  margin: 0;
+  font-weight: 650;
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.demo {
+  box-sizing: border-box;
+  width: min(100% - 2rem, var(--demo-width, 56rem));
+  padding: 2rem 0;
+}
+
+.demo {
+  --demo-width: 34rem;
+}

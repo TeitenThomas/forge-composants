@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bandeau de cookies sombre et compact</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="demo">
+      <div data-consent-root>
+        <section class="cks" data-consent aria-labelledby="cookies-sombre-compact-title">
+          <h2 id="cookies-sombre-compact-title" class="cks__title">Nous respectons vos choix</h2>
+          <p class="cks__text">Avec votre accord, nous utilisons des cookies pour mesurer l'audience et personnaliser la publicité. Vous pouvez accepter, refuser ou choisir par catégorie, et changer d'avis à tout moment. <a href="#politique-cookies" class="cks__link">Politique de cookies</a></p>
+          <fieldset id="cookies-sombre-compact-panel" class="cks__panel" data-consent-panel hidden>
+            <legend class="cks__legend">Vos choix par catégorie</legend>
+            <div class="cks__option">
+              <input id="cookies-sombre-compact-necessary" type="checkbox" checked disabled class="cks__input" />
+              <label for="cookies-sombre-compact-necessary" class="cks__label">Cookies nécessaires<span class="cks__desc">Panier, connexion et sécurité : toujours actifs, ils ne nécessitent pas de consentement.</span></label>
+            </div>
+            <div class="cks__option">
+              <input id="cookies-sombre-compact-analytics" type="checkbox" data-consent-category="analytics" class="cks__input" />
+              <label for="cookies-sombre-compact-analytics" class="cks__label">Mesure d'audience<span class="cks__desc">Statistiques anonymes de fréquentation pour améliorer le site.</span></label>
+            </div>
+            <div class="cks__option">
+              <input id="cookies-sombre-compact-marketing" type="checkbox" data-consent-category="marketing" class="cks__input" />
+              <label for="cookies-sombre-compact-marketing" class="cks__label">Publicité personnalisée<span class="cks__desc">Annonces adaptées à vos centres d'intérêt sur d'autres sites.</span></label>
+            </div>
+          </fieldset>
+          <div class="cks__actions">
+            <button type="button" class="cks__refuse" data-consent-refuse>Tout refuser</button>
+          <button type="button" class="cks__customize" data-consent-customize aria-expanded="false" aria-controls="cookies-sombre-compact-panel">Personnaliser</button>
+            <button type="button" class="cks__save" data-consent-save hidden>Enregistrer mes choix</button>
+            <button type="button" class="cks__accept" data-consent-accept>Tout accepter</button>
+          </div>
+        </section>
+        <button type="button" class="cks__manage" data-consent-manage hidden>Gérer les cookies</button>
+      </div>
+    </main>
+    <script src="consent.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carrousel d'images</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark {
+        @media (prefers-color-scheme: dark) {
+          &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+            @slot;
+          }
+        }
+        &:where([data-theme="dark"], [data-theme="dark"] *) {
+          @slot;
+        }
+      }
+    </style>
+  </head>
+  <body class="grid min-h-screen grid-cols-1 place-items-center bg-[#f0fbfa] font-sans text-[#042f2e] dark:bg-[#021514] dark:text-[#e6fffb]">
+    <main class="mx-auto w-[min(100%_-_2rem,40rem)] py-8">
+      <section aria-roledescription="carrousel" aria-label="Photos du Mas des Oliviers" data-carousel class="grid gap-4 text-[#042f2e] dark:text-[#e6fffb]">
+        <div id="pcar-slides" data-carousel-slides class="grid gap-4">
+          <figure class="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_30px_-18px_rgb(4_47_46/0.5)] dark:bg-[#062523] dark:shadow-none" role="group" aria-roledescription="diapositive" aria-label="1 sur 4" data-slide>
+            <div class="aspect-[16/9]" role="img" aria-label="Terrasse en pierre avec table dressée face aux collines au coucher du soleil" style="background: linear-gradient(135deg,#fcd9a8,#c2410c)"></div>
+            <figcaption class="grid gap-1 px-5 py-4"><h3 class="text-lg font-bold">La terrasse au soleil couchant</h3><p class="text-[#3f6260] dark:text-[#9fd3cc]">Dîner face aux Alpilles, de mai à septembre.</p></figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_30px_-18px_rgb(4_47_46/0.5)] dark:bg-[#062523] dark:shadow-none" role="group" aria-roledescription="diapositive" aria-label="2 sur 4" data-slide>
+            <div class="aspect-[16/9]" role="img" aria-label="Chambre aux murs mauves, lit blanc et fenêtre ouverte sur le jardin" style="background: linear-gradient(135deg,#e2d5f5,#6d4fa8)"></div>
+            <figcaption class="grid gap-1 px-5 py-4"><h3 class="text-lg font-bold">Chambre Lavande</h3><p class="text-[#3f6260] dark:text-[#9fd3cc]">Lit de 160, salle d'eau privative et vue sur le jardin.</p></figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_30px_-18px_rgb(4_47_46/0.5)] dark:bg-[#062523] dark:shadow-none" role="group" aria-roledescription="diapositive" aria-label="3 sur 4" data-slide>
+            <div class="aspect-[16/9]" role="img" aria-label="Piscine bordée d'oliviers et de transats blancs" style="background: linear-gradient(135deg,#c4f1ec,#0f766e)"></div>
+            <figcaption class="grid gap-1 px-5 py-4"><h3 class="text-lg font-bold">La piscine chauffée</h3><p class="text-[#3f6260] dark:text-[#9fd3cc]">Ouverte d'avril à octobre, transats et douche extérieure.</p></figcaption>
+          </figure>
+          <figure class="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_30px_-18px_rgb(4_47_46/0.5)] dark:bg-[#062523] dark:shadow-none" role="group" aria-roledescription="diapositive" aria-label="4 sur 4" data-slide>
+            <div class="aspect-[16/9]" role="img" aria-label="Table de petit-déjeuner avec confitures, pain et fruits frais" style="background: linear-gradient(135deg,#f6e7b0,#a16207)"></div>
+            <figcaption class="grid gap-1 px-5 py-4"><h3 class="text-lg font-bold">Le petit-déjeuner maison</h3><p class="text-[#3f6260] dark:text-[#9fd3cc]">Confitures du jardin, pain du village et œufs de nos poules.</p></figcaption>
+          </figure>
+        </div>
+        <div data-carousel-controls hidden class="flex items-center gap-2">
+          <button type="button" aria-label="Mettre en pause le défilement" data-carousel-toggle class="grid size-11 cursor-pointer place-items-center rounded-full border border-[#bfe3de] bg-white text-[#0f766e] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#134e4a] dark:border-[#164e4a] dark:bg-[#062523] dark:text-[#5eead4] dark:focus-visible:outline-[#99f6e4]"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon-pause><path d="M9 6v12M15 6v12" /></svg><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden data-icon-play><path d="M8 5.5v13l10-6.5z" /></svg></button>
+          <div class="mx-auto flex flex-wrap justify-center gap-1">
+            <button type="button" class="grid h-6 min-w-6 cursor-pointer place-items-center rounded-full before:size-2.5 before:rounded-full before:bg-[#8fbfb9] before:content-[''] focus-visible:outline-3 focus-visible:outline-offset-1 focus-visible:outline-[#134e4a] aria-[current=true]:before:w-6 aria-[current=true]:before:bg-[#0f766e] dark:before:bg-[#2f6b65] dark:focus-visible:outline-[#99f6e4] dark:aria-[current=true]:before:bg-[#5eead4]" aria-label="Diapositive 1" aria-controls="pcar-slides" aria-current="true" data-carousel-dot></button>
+            <button type="button" class="grid h-6 min-w-6 cursor-pointer place-items-center rounded-full before:size-2.5 before:rounded-full before:bg-[#8fbfb9] before:content-[''] focus-visible:outline-3 focus-visible:outline-offset-1 focus-visible:outline-[#134e4a] aria-[current=true]:before:w-6 aria-[current=true]:before:bg-[#0f766e] dark:before:bg-[#2f6b65] dark:focus-visible:outline-[#99f6e4] dark:aria-[current=true]:before:bg-[#5eead4]" aria-label="Diapositive 2" aria-controls="pcar-slides" aria-current="false" data-carousel-dot></button>
+            <button type="button" class="grid h-6 min-w-6 cursor-pointer place-items-center rounded-full before:size-2.5 before:rounded-full before:bg-[#8fbfb9] before:content-[''] focus-visible:outline-3 focus-visible:outline-offset-1 focus-visible:outline-[#134e4a] aria-[current=true]:before:w-6 aria-[current=true]:before:bg-[#0f766e] dark:before:bg-[#2f6b65] dark:focus-visible:outline-[#99f6e4] dark:aria-[current=true]:before:bg-[#5eead4]" aria-label="Diapositive 3" aria-controls="pcar-slides" aria-current="false" data-carousel-dot></button>
+            <button type="button" class="grid h-6 min-w-6 cursor-pointer place-items-center rounded-full before:size-2.5 before:rounded-full before:bg-[#8fbfb9] before:content-[''] focus-visible:outline-3 focus-visible:outline-offset-1 focus-visible:outline-[#134e4a] aria-[current=true]:before:w-6 aria-[current=true]:before:bg-[#0f766e] dark:before:bg-[#2f6b65] dark:focus-visible:outline-[#99f6e4] dark:aria-[current=true]:before:bg-[#5eead4]" aria-label="Diapositive 4" aria-controls="pcar-slides" aria-current="false" data-carousel-dot></button>
+          </div>
+          <button type="button" aria-label="Diapositive précédente" aria-controls="pcar-slides" data-carousel-prev class="grid size-11 cursor-pointer place-items-center rounded-full border border-[#bfe3de] bg-white text-[#0f766e] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#134e4a] dark:border-[#164e4a] dark:bg-[#062523] dark:text-[#5eead4] dark:focus-visible:outline-[#99f6e4]"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon-prev><path d="m15 6-6 6 6 6" /></svg></button>
+          <button type="button" aria-label="Diapositive suivante" aria-controls="pcar-slides" data-carousel-next class="grid size-11 cursor-pointer place-items-center rounded-full border border-[#bfe3de] bg-white text-[#0f766e] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[#134e4a] dark:border-[#164e4a] dark:bg-[#062523] dark:text-[#5eead4] dark:focus-visible:outline-[#99f6e4]"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon-next><path d="m9 6 6 6-6 6" /></svg></button>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.querySelectorAll("[data-carousel]").forEach((root) => {
+        const slides = [...root.querySelectorAll("[data-slide]")];
+        const dots = [...root.querySelectorAll("[data-carousel-dot]")];
+        const track = root.querySelector("[data-carousel-slides]");
+        const toggle = root.querySelector("[data-carousel-toggle]");
+        let index = 0;
+        let playing = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let hovered = false;
+        let timer;
+
+        function show(next) {
+          index = (next + slides.length) % slides.length;
+          slides.forEach((slide, position) => {
+            slide.hidden = position !== index;
+          });
+          dots.forEach((dot, position) => dot.setAttribute("aria-current", String(position === index)));
+        }
+
+        function schedule() {
+          clearInterval(timer);
+          if (playing && !hovered) timer = setInterval(() => show(index + 1), 6000);
+        }
+
+        function setPlaying(value) {
+          playing = value;
+          toggle.setAttribute("aria-label", value ? "Mettre en pause le défilement" : "Lancer le défilement");
+          toggle.querySelector("[data-icon-pause]").hidden = !value;
+          toggle.querySelector("[data-icon-play]").hidden = value;
+          // Slide changes are only announced when the user drives them.
+          track.setAttribute("aria-live", value ? "off" : "polite");
+          schedule();
+        }
+
+        root.querySelector("[data-carousel-prev]").addEventListener("click", () => show(index - 1));
+        root.querySelector("[data-carousel-next]").addEventListener("click", () => show(index + 1));
+        dots.forEach((dot, position) => dot.addEventListener("click", () => show(position)));
+        toggle.addEventListener("click", () => setPlaying(!playing));
+        root.addEventListener("focusin", (event) => {
+          if (event.target !== toggle && playing) setPlaying(false);
+        });
+        root.addEventListener("mouseenter", () => {
+          hovered = true;
+          schedule();
+        });
+        root.addEventListener("mouseleave", () => {
+          hovered = false;
+          schedule();
+        });
+
+        // Without JavaScript the slides stay stacked and readable, and no control is shown.
+        root.querySelector("[data-carousel-controls]").hidden = false;
+        show(0);
+        setPlaying(playing);
+      });
+    </script>
+  </body>
+</html>

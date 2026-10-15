@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carrousel d'images</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="demo">
+      <section class="pcar" aria-roledescription="carrousel" aria-label="Photos du Mas des Oliviers" data-carousel>
+        <div class="pcar__slides" id="pcar-slides" data-carousel-slides>
+          <figure class="pcar__slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 4" data-slide>
+            <div class="pcar__photo" role="img" aria-label="Terrasse en pierre avec table dressée face aux collines au coucher du soleil" style="background: linear-gradient(135deg,#fcd9a8,#c2410c)"></div>
+            <figcaption><h3>La terrasse au soleil couchant</h3><p>Dîner face aux Alpilles, de mai à septembre.</p></figcaption>
+          </figure>
+          <figure class="pcar__slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 4" data-slide>
+            <div class="pcar__photo" role="img" aria-label="Chambre aux murs mauves, lit blanc et fenêtre ouverte sur le jardin" style="background: linear-gradient(135deg,#e2d5f5,#6d4fa8)"></div>
+            <figcaption><h3>Chambre Lavande</h3><p>Lit de 160, salle d'eau privative et vue sur le jardin.</p></figcaption>
+          </figure>
+          <figure class="pcar__slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 4" data-slide>
+            <div class="pcar__photo" role="img" aria-label="Piscine bordée d'oliviers et de transats blancs" style="background: linear-gradient(135deg,#c4f1ec,#0f766e)"></div>
+            <figcaption><h3>La piscine chauffée</h3><p>Ouverte d'avril à octobre, transats et douche extérieure.</p></figcaption>
+          </figure>
+          <figure class="pcar__slide" role="group" aria-roledescription="diapositive" aria-label="4 sur 4" data-slide>
+            <div class="pcar__photo" role="img" aria-label="Table de petit-déjeuner avec confitures, pain et fruits frais" style="background: linear-gradient(135deg,#f6e7b0,#a16207)"></div>
+            <figcaption><h3>Le petit-déjeuner maison</h3><p>Confitures du jardin, pain du village et œufs de nos poules.</p></figcaption>
+          </figure>
+        </div>
+        <div class="pcar__controls" data-carousel-controls hidden>
+          <button type="button" class="pcar__button" aria-label="Mettre en pause le défilement" data-carousel-toggle><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon-pause><path d="M9 6v12M15 6v12" /></svg><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden data-icon-play><path d="M8 5.5v13l10-6.5z" /></svg></button>
+          <div class="pcar__dots">
+            <button type="button" class="pcar__dot" aria-label="Diapositive 1" aria-controls="pcar-slides" aria-current="true" data-carousel-dot></button>
+            <button type="button" class="pcar__dot" aria-label="Diapositive 2" aria-controls="pcar-slides" aria-current="false" data-carousel-dot></button>
+            <button type="button" class="pcar__dot" aria-label="Diapositive 3" aria-controls="pcar-slides" aria-current="false" data-carousel-dot></button>
+            <button type="button" class="pcar__dot" aria-label="Diapositive 4" aria-controls="pcar-slides" aria-current="false" data-carousel-dot></button>
+          </div>
+          <button type="button" class="pcar__button" aria-label="Diapositive précédente" aria-controls="pcar-slides" data-carousel-prev><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon-prev><path d="m15 6-6 6 6 6" /></svg></button>
+          <button type="button" class="pcar__button" aria-label="Diapositive suivante" aria-controls="pcar-slides" data-carousel-next><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon-next><path d="m9 6 6 6-6 6" /></svg></button>
+        </div>
+      </section>
+    </main>
+    <script src="carousel.js"></script>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+:root {
+  --ck-bg: #111216;
+  --ck-text: #f4f5f7;
+  --ck-muted: #b2b6c0;
+  --ck-line: #2c2f38;
+  --ck-btn: #f4f5f7;
+  --ck-btn-text: #111216;
+  --ck-accent: #f4f5f7;
+  --ck-ring: #fcd34d;
+  --demo-bg: #e7e8ec;
+  --demo-text: #111216;
+  --ck-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ck-bg: #0a0b0e;
+    --ck-text: #f4f5f7;
+    --ck-muted: #b2b6c0;
+    --ck-line: #24262e;
+    --ck-btn: #f4f5f7;
+    --ck-btn-text: #0a0b0e;
+    --ck-accent: #f4f5f7;
+    --ck-ring: #fcd34d;
+    --demo-bg: #000000;
+    --demo-text: #f4f5f7;
+    --ck-radius: 8px;
+  }
+}
+
+[data-theme="dark"] {
+  --ck-bg: #0a0b0e;
+  --ck-text: #f4f5f7;
+  --ck-muted: #b2b6c0;
+  --ck-line: #24262e;
+  --ck-btn: #f4f5f7;
+  --ck-btn-text: #0a0b0e;
+  --ck-accent: #f4f5f7;
+  --ck-ring: #fcd34d;
+  --demo-bg: #000000;
+  --demo-text: #f4f5f7;
+  --ck-radius: 8px;
+}
+
+.cks[hidden],
+.cks__panel[hidden],
+.cks__save[hidden],
+.cks__manage[hidden] {
+  display: none;
+}
+
+.cks {
+  box-sizing: border-box;
+  background: var(--ck-bg);
+  color: var(--ck-text);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  max-width: 64rem;
+  max-height: calc(100vh - 2rem);
+  margin: 0 auto;
+  overflow-y: auto;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+}
+
+.cks__title {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+}
+
+.cks__text {
+  margin: 0;
+  color: var(--ck-muted);
+  line-height: 1.55;
+}
+
+.cks__link {
+  color: var(--ck-text);
+  font-weight: 700;
+}
+
+.cks__panel {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem 1rem;
+  border: 1px solid var(--ck-line);
+  border-radius: 12px;
+}
+
+.cks__legend {
+  padding: 0 0.35rem;
+  font-weight: 700;
+}
+
+.cks__option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.65rem;
+}
+
+.cks__input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--ck-accent);
+}
+
+.cks__label {
+  display: grid;
+  gap: 0.15rem;
+  font-weight: 650;
+}
+
+.cks__desc {
+  color: var(--ck-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.cks__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.cks__refuse,
+.cks__accept,
+.cks__save,
+.cks__customize {
+  min-height: 2.75rem;
+  padding: 0 1.15rem;
+  border: 2px solid var(--ck-btn);
+  border-radius: var(--ck-radius);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Refusing must be exactly as easy and visible as accepting. */
+.cks__refuse,
+.cks__accept {
+  background: var(--ck-btn);
+  color: var(--ck-btn-text);
+}
+
+.cks__save {
+  background: transparent;
+  color: var(--ck-text);
+}
+
+.cks__customize {
+  border-color: transparent;
+  background: none;
+  color: var(--ck-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cks__manage {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--ck-line);
+  border-radius: 999px;
+  background: var(--ck-bg);
+  box-shadow: 0 8px 24px -12px rgb(0 0 0 / 0.4);
+  color: var(--ck-text);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.cks a:focus-visible,
+.cks button:focus-visible,
+.cks input:focus-visible,
+.cks__manage:focus-visible {
+  outline: 3px solid var(--ck-ring);
+  outline-offset: 2px;
+}
+
+.cks__title {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.cks__text {
+  font-size: 0.875rem;
+}
+
+.cks__actions {
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+@media (min-width: 900px) {
+  .cks {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  .cks__actions {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+  }
+
+  .cks__panel {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}

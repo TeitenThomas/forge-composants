@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Champs à libellé flottant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="demo">
+      <form class="float-form" action="#envoi">
+        <div class="float-field">
+          <input id="float-name" type="text" name="name" placeholder=" " autocomplete="name" />
+          <label for="float-name">Nom complet</label>
+        </div>
+        <div class="float-field">
+          <input id="float-email" type="email" name="email" placeholder=" " autocomplete="email" />
+          <label for="float-email">Adresse e-mail</label>
+        </div>
+        <div class="float-field">
+          <input id="float-phone" type="tel" name="tel" placeholder=" " autocomplete="tel" />
+          <label for="float-phone">Téléphone (facultatif)</label>
+        </div>
+        <button type="submit">Être rappelé</button>
+      </form>
+    </main>
+  </body>
+</html>

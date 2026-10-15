@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bouton avec état de chargement</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="demo">
+      <button type="button" class="loading-button" data-loading-button>
+        <span class="loading-button__label">Envoyer ma demande</span>
+        <span class="loading-button__pending" aria-hidden="true">
+          <span class="loading-button__spinner"></span>Envoi…
+        </span>
+        <span class="loading-button__done" aria-hidden="true">Demande envoyée</span>
+      </button>
+      <p>Cliquez pour simuler un envoi de deux secondes.</p>
+      <p class="visually-hidden" role="status" aria-live="polite" data-loading-status></p>
+    </main>
+    <script src="loading-button.js"></script>
+  </body>
+</html>

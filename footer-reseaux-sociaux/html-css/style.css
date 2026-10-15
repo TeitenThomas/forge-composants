@@ -1,0 +1,142 @@
+:root {
+  --social-bg: #ecfeff;
+  --social-card: #ffffff;
+  --social-line: #a5f3fc;
+  --social-text: #155e75;
+  --social-strong: #083344;
+  --social-accent: #0e7490;
+  --social-ring: #0e7490;
+  --demo-bg: #ffffff;
+  --demo-text: #083344;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --social-bg: #042f2e;
+    --social-card: #063b3a;
+    --social-line: #0f5a58;
+    --social-text: #a5f3fc;
+    --social-strong: #ecfeff;
+    --social-accent: #67e8f9;
+    --social-ring: #67e8f9;
+    --demo-bg: #021716;
+    --demo-text: #ecfeff;
+  }
+}
+
+[data-theme="dark"] {
+  --social-bg: #042f2e;
+  --social-card: #063b3a;
+  --social-line: #0f5a58;
+  --social-text: #a5f3fc;
+  --social-strong: #ecfeff;
+  --social-accent: #67e8f9;
+  --social-ring: #67e8f9;
+  --demo-bg: #021716;
+  --demo-text: #ecfeff;
+}
+
+.social {
+  background: var(--social-bg);
+  color: var(--social-text);
+}
+
+.social__inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 1.5rem;
+}
+
+.social h2 {
+  margin: 0 0 1.5rem;
+  color: var(--social-strong);
+  font-size: 1.6rem;
+}
+
+.social__cards {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social__cards a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--social-line);
+  border-radius: 14px;
+  background: var(--social-card);
+  color: var(--social-text);
+  text-decoration: none;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.social__cards a:hover {
+  border-color: var(--social-accent);
+  transform: translateY(-2px);
+}
+
+.social__cards svg {
+  grid-row: span 3;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--social-accent);
+}
+
+.social__cards strong {
+  color: var(--social-strong);
+}
+
+.social__cards small {
+  font-size: 0.85rem;
+}
+
+.social a:focus-visible {
+  outline: 2px solid var(--social-ring);
+  outline-offset: 3px;
+}
+
+.social__legal {
+  margin: 2rem 0 0;
+  font-size: 0.85rem;
+}
+
+.social__legal a {
+  color: var(--social-strong);
+}
+
+@media (min-width: 640px) {
+  .social__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .social__cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social__cards a {
+    transition: none;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+}

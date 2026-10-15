@@ -1,0 +1,113 @@
+:root {
+  --raised-bg: #2b3fd9;
+  --raised-text: #ffffff;
+  --raised-edge: #17227a;
+  --raised-secondary-bg: #ffffff;
+  --raised-secondary-text: #17227a;
+  --raised-secondary-edge: #17227a;
+  --raised-ring: #ffb020;
+  --raised-radius: 12px;
+  --raised-depth: 5px;
+  --demo-bg: #f3f4f8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --raised-bg: #7f8cff;
+    --raised-text: #0d1033;
+    --raised-edge: #3a44a8;
+    --raised-secondary-bg: #1b1f45;
+    --raised-secondary-text: #e4e7ff;
+    --raised-secondary-edge: #5560c9;
+    --demo-bg: #0f122b;
+  }
+}
+
+[data-theme="dark"] {
+  --raised-bg: #7f8cff;
+  --raised-text: #0d1033;
+  --raised-edge: #3a44a8;
+  --raised-secondary-bg: #1b1f45;
+  --raised-secondary-text: #e4e7ff;
+  --raised-secondary-edge: #5560c9;
+  --demo-bg: #0f122b;
+}
+
+.raised-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 3rem;
+  padding: 0 1.5rem;
+  border: 2px solid var(--raised-edge);
+  border-radius: var(--raised-radius);
+  background: var(--raised-bg);
+  color: var(--raised-text);
+  font: 700 1rem/1 system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 var(--raised-depth) 0 var(--raised-edge);
+  transform: translateY(0);
+  transition:
+    transform 90ms ease-out,
+    box-shadow 90ms ease-out;
+}
+
+.raised-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 calc(var(--raised-depth) + 1px) 0 var(--raised-edge);
+}
+
+.raised-button:active {
+  transform: translateY(var(--raised-depth));
+  box-shadow: 0 0 0 var(--raised-edge);
+}
+
+.raised-button:focus-visible {
+  outline: 3px solid var(--raised-ring);
+  outline-offset: 4px;
+}
+
+.raised-button--secondary {
+  --raised-bg: var(--raised-secondary-bg);
+  --raised-text: var(--raised-secondary-text);
+  --raised-edge: var(--raised-secondary-edge);
+}
+
+.raised-button--small {
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  --raised-depth: 4px;
+}
+
+.raised-button--large {
+  min-height: 3.75rem;
+  padding: 0 2rem;
+  font-size: 1.125rem;
+  --raised-depth: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raised-button {
+    transition: none;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--demo-bg);
+}
+
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem;
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grille de fonctionnalités à icônes</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark {
+        @media (prefers-color-scheme: dark) {
+          &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) {
+            @slot;
+          }
+        }
+        &:where([data-theme="dark"], [data-theme="dark"] *) {
+          @slot;
+        }
+      }
+    </style>
+  </head>
+  <body class="grid min-h-screen grid-cols-1 place-items-center bg-[#f8faff] font-sans text-[#0b1b3a] dark:bg-[#070d1c] dark:text-[#e6edff]">
+    <main class="mx-auto w-[min(100%_-_2rem,68rem)] py-8">
+      <section>
+        <h2 class="mb-3 max-w-[34rem] text-3xl leading-tight font-bold tracking-[-0.02em] md:text-4xl">Tout ce qu'il faut pour piloter votre activité</h2>
+        <p class="mb-10 max-w-[40rem] text-lg leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Une seule application pour la facturation, le suivi des paiements et la collaboration avec votre cabinet comptable.</p>
+        <ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          <li>
+            <span class="grid size-11 place-items-center rounded-xl bg-[#dbe6ff] text-blue-700 dark:bg-[#1a2a52] dark:text-[#93b4ff]"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3Z"/></svg></span>
+            <h3 class="mt-4 mb-1.5 text-lg font-bold">Synchronisation instantanée</h3>
+            <p class="leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Chaque modification apparaît chez vos collègues en moins d'une seconde, même sur mobile.</p>
+          </li>
+          <li>
+            <span class="grid size-11 place-items-center rounded-xl bg-[#dbe6ff] text-blue-700 dark:bg-[#1a2a52] dark:text-[#93b4ff]"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3 class="mt-4 mb-1.5 text-lg font-bold">Données hébergées en France</h3>
+            <p class="leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Serveurs certifiés HDS à Roubaix et Strasbourg, sauvegardés toutes les heures.</p>
+          </li>
+          <li>
+            <span class="grid size-11 place-items-center rounded-xl bg-[#dbe6ff] text-blue-700 dark:bg-[#1a2a52] dark:text-[#93b4ff]"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <h3 class="mt-4 mb-1.5 text-lg font-bold">Tableaux de bord clairs</h3>
+            <p class="leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Chiffre d'affaires, marge et retards de paiement réunis sur un seul écran.</p>
+          </li>
+          <li>
+            <span class="grid size-11 place-items-center rounded-xl bg-[#dbe6ff] text-blue-700 dark:bg-[#1a2a52] dark:text-[#93b4ff]"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.8c1.7.8 2.7 2.5 3 5.2"/></svg></span>
+            <h3 class="mt-4 mb-1.5 text-lg font-bold">Rôles et permissions</h3>
+            <p class="leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Donnez à chacun l'accès dont il a besoin, du stagiaire à l'expert-comptable.</p>
+          </li>
+          <li>
+            <span class="grid size-11 place-items-center rounded-xl bg-[#dbe6ff] text-blue-700 dark:bg-[#1a2a52] dark:text-[#93b4ff]"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5h10.5a4 4 0 0 0 .4-8 6 6 0 0 0-11.6 1.6A3.3 3.3 0 0 0 7 18.5Z"/></svg></span>
+            <h3 class="mt-4 mb-1.5 text-lg font-bold">Fonctionne hors ligne</h3>
+            <p class="leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Continuez à saisir sans réseau : tout se synchronise au retour de la connexion.</p>
+          </li>
+          <li>
+            <span class="grid size-11 place-items-center rounded-xl bg-[#dbe6ff] text-blue-700 dark:bg-[#1a2a52] dark:text-[#93b4ff]"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+            <h3 class="mt-4 mb-1.5 text-lg font-bold">Double authentification</h3>
+            <p class="leading-relaxed text-[#46577a] dark:text-[#a9b9dd]">Code par application ou clé de sécurité, activable pour toute l'équipe en un clic.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
